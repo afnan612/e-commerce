@@ -2,12 +2,22 @@
 @section('title')
     المتجر
 @stop
+@section('css')
+    <!-- Internal Data table css -->
+    <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
+
+@endsection
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ الادمن</span>
+                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ اراء العملاء</span>
             </div>
         </div>
     </div>
@@ -48,7 +58,8 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">الاسم</th>
-                                <th scope="col">الايميل</th>
+                                <th scope="col">العنوان الفرعي</th>
+                                <th scope="col">الرأي</th>
                                 <th scope="col">الصورة</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
 
@@ -56,21 +67,22 @@
                             </thead>
                             <tbody>
                             <?php $i = 0; ?>
-                            @foreach ($admins as $admin)
+                            @foreach ($reviews as $review)
                                 <tr>
 
                                         <?php $i++; ?>
-                                    <td>{{ $admin->id }}</td>
-                                    <td>{{ $admin->name }}</td>
-                                    <td>{{ $admin->email }}</td>
-                                    <td > <img src="{{ asset($admin->image) }}"  style="width: 80px" height="80px" border-radius="50%" ></td>
+                                    <td>{{ $review->id }}</td>
+                                    <td>{{ $review->name }}</td>
+                                    <td>{{ $review->sub_title }}</td>
+                                    <td>{{ $review->review }}</td>
+                                    <td > <img src="{{ asset($review->image) }}"  style="width: 80px" height="80px" border-radius="50%" ></td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                                data-target="#edit{{ $admin->id }}"
+                                                data-target="#edit{{ $review->id }}"
                                                 title=""><i
                                                 class="fa fa-edit"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#delete{{ $admin->id }}"
+                                                data-target="#delete{{ $review->id }}"
                                                 title=""><i
                                                 class="fa fa-trash"></i></button>
 
@@ -78,7 +90,7 @@
                                 </tr>
 
                                 <!-- edit_modal -->
-                                <div class="modal fade" id="edit{{ $admin->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="edit{{ $review->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -92,31 +104,30 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('admins.update', $admin->id) }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('reviews.update', $review->id) }}" method="POST" enctype="multipart/form-data">
                                                     @method('PUT')
                                                     {{ csrf_field() }}
 
-                                                    <input type="hidden" name="id"value="{{  $admin->id}}">
-
+                                                    <input type="hidden" name="id"value="{{ $review->id}}">
 
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">الاسم  </label>
-                                                        <input type="text" class="form-control" id="slider_title" name="name"  value="{{  $admin->name}}" >
+                                                        <label for="exampleInputEmail1">الاسم </label>
+                                                        <input type="text" class="form-control" name="name"  value="{{ $review->name}}" >
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">الايميل</label>
-                                                        <input type="text" class="form-control" id="slider_description" name="email"  value="{{  $admin->email}}">
+                                                        <label for="exampleInputEmail1">العنوان الفرعي </label>
+                                                        <input type="text" class="form-control" name="sub_title"  value="{{ $review->sub_title}}" >
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">كلمة المرور</label>
-                                                        <input type="text" class="form-control" id="slider_btn_text" name="password"  value="" >
+                                                        <label for="exampleInputEmail1">الرأي </label>
+                                                        <input type="text" class="form-control" name="review"  value="{{ $review->review}}" >
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label >الصورة</label>
-                                                        <input type="file" class="form-control-file" name="image" value=" {{  $admin->image}}"  >
+                                                        <input type="file" class="form-control-file" name="image" >
                                                     </div>
 
                                                     <div class="modal-footer">
@@ -130,7 +141,7 @@
                                 </div>
 
                                                     <!-- delete_modal -->
-                                <div class="modal fade" id="delete{{ $admin->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="delete{{ $review->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -144,13 +155,12 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('admins.destroy', $admin->id) }}" method="post">
+                                                <form action="{{ route('reviews.destroy', $review->id) }}" method="post">
                                                     @method('DELETE')
-                                                    {{--                                    <form action="{{route('slider.destroy','test')}}" method="post">--}}
-                                                    {{--                                        {{method_field('Delete')}}--}}
+
                                                     @csrf
                                                     <input id="id" type="hidden" name="id" class="form-control"
-                                                           value="{{ $admin->id }}">
+                                                           value="{{ $review->id }}">
                                                     <div class="modal-footer">
                                                         <button type="submit"
                                                                 class="btn btn-danger">حذف</button>
@@ -171,29 +181,28 @@
                                             <h6 class="modal-title">اضافة</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('admins.store') }}" method="post"   enctype="multipart/form-data">
+                                            <form action="{{ route('reviews.store') }}" method="post"   enctype="multipart/form-data">
                                                 {{ csrf_field() }}
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">الاسم  </label>
-                                                    <input type="text" class="form-control" id="slider_title" name="name" >
+                                                    <label for="exampleInputEmail1">الاسم </label>
+                                                    <input type="text" class="form-control" name="name">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">الايميل</label>
-                                                    <input type="text" class="form-control" id="slider_description" name="email">
+                                                    <label for="exampleInputEmail1">العنوان الفرعي </label>
+                                                    <input type="text" class="form-control" name="sub_title">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">كلمة المرور</label>
-                                                    <input type="text" class="form-control" id="slider_btn_text" name="password">
+                                                    <label for="exampleInputEmail1">الرأي </label>
+                                                    <input type="text" class="form-control" name="review">
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label >الصورة</label>
-                                                    <input type="file" class="form-control-file" name="image" >
+                                                    <input type="file" class="form-control-file" name="image">
                                                 </div>
-
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-success">تاكيد</button>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
@@ -211,6 +220,29 @@
                 </div>
                 <!-- main-content closed -->
 
+
+                @endsection
+                @section('js')
+                    <!-- Internal Data tables -->
+                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+                    <!--Internal  Datatable js -->
+                    <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
+                    <script src="{{URL::asset('assets/js/modal.js')}}"></script>
 
 @endsection
 

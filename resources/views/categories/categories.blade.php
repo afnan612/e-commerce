@@ -17,7 +17,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ categories</span>
+                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ التصنيفات</span>
             </div>
         </div>
     </div>
@@ -57,8 +57,8 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">name</th>
-                                <th scope="col">image</th>
+                                <th scope="col">الاسم</th>
+                                <th scope="col">الصورة</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
 
                             </tr>
@@ -85,7 +85,7 @@
                                     </td>
                                 </tr>
 
-                                <!-- edit_modal_Grade -->
+                                <!-- edit_modal -->
                                 <div class="modal fade" id="edit{{ $Category->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -107,12 +107,12 @@
                                                     <input type="hidden" name="id"value="{{ $Category->id}}">
 
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">الاسم  </label>
+                                                        <label for="exampleInputEmail1">الاسم </label>
                                                         <input type="text" class="form-control" id="slider_title" name="category_name"  value="{{ $Category->category_name}}" >
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label >image</label>
+                                                        <label >الصورة</label>
                                                         <input type="file" class="form-control-file" name="image" value=" {{ $Category->image}}"  >
                                                     </div>
 
@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
 
-                                {{--                    <!-- delete_modal_Grade -->--}}
+                                                    <!-- delete_modal -->
                                 <div class="modal fade" id="delete{{ $Category->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -158,11 +158,9 @@
                                     </div>
                                 </div>
 
-
-                                {{--                    </div>--}}
                             @endforeach
 
-                            <!-- Basic modal -->
+                            <!-- add modal -->
                             <div class="modal" id="modaldemo8">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content modal-content-demo">
@@ -174,12 +172,12 @@
                                                 {{ csrf_field() }}
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">الاسم  </label>
-                                                    <input type="text" class="form-control" id="slider_title" name="category_name">
+                                                    <label for="exampleInputEmail1">الاسم </label>
+                                                    <input type="text" class="form-control" name="category_name">
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label >image</label>
+                                                    <label >الصورة</label>
                                                     <input type="file" class="form-control-file" name="image">
                                                 </div>
                                                 <div class="modal-footer">

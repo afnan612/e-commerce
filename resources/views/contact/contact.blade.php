@@ -17,7 +17,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ شركاء النجاح</span>
+                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ تواصل معنا</span>
             </div>
         </div>
     </div>
@@ -48,7 +48,7 @@
                         </div>
                     @endif
 
-                    <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8">اضافة</a>
+{{--                    <a class="modal-effect btn btn-outline-primary btn-block" data-effect="effect-scale" data-toggle="modal" href="#modaldemo8">اضافة</a>--}}
 
                     <div class="table-responsive">
                         <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -58,76 +58,98 @@
                             <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">الاسم</th>
-                                <th scope="col">الصورة</th>
+                                <th scope="col">الايميل</th>
+                                <th scope="col">الهاتف</th>
+                                <th scope="col">الموضوع</th>
+                                <th scope="col">الرسالة</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
 
                             </tr>
                             </thead>
                             <tbody>
                             <?php $i = 0; ?>
-                            @foreach ($sponsors as $sponsor)
+                            @foreach ($contacts as $contact)
                                 <tr>
 
                                         <?php $i++; ?>
-                                    <td>{{ $sponsor->id }}</td>
-                                    <td>{{ $sponsor->name }}</td>
-                                    <td > <img src="{{ asset($sponsor->image) }}"  style="width: 80px" height="80px" border-radius="50%" ></td>
+                                    <td>{{ $contact->id }}</td>
+                                    <td>{{ $contact->name }}</td>
+                                    <td>{{ $contact->email }}</td>
+                                    <td>{{ $contact->phone }}</td>
+                                    <td>{{ $contact->subject }}</td>
+                                    <td>{{ $contact->message }}</td>
+
                                     <td>
                                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                                data-target="#edit{{ $sponsor->id }}"
-                                                title=""><i
-                                                class="fa fa-edit"></i></button>
+                                                data-target="#show{{ $contact->id }}"
+                                                title=""> <i class="fa fa-eye"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                                data-target="#delete{{ $sponsor->id }}"
-                                                title=""><i
-                                                class="fa fa-trash"></i></button>
+                                                data-target="#delete{{ $contact->id }}"
+                                                title=""> <i class="fa fa-trash"></i></button>
 
                                     </td>
                                 </tr>
 
-                                <!-- edit_modal_sponsors -->
-                                <div class="modal fade" id="edit{{ $sponsor->id }}" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- edit_modal_contact -->
+                                <div class="modal fade" id="show{{ $contact->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
-                                                    id="exampleModalLabel">
+                                                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
                                                 </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('sponsors.update', $sponsor->id) }}" method="POST" enctype="multipart/form-data">
-                                                    @method('PUT')
-                                                    {{ csrf_field() }}
+                                                <div class="row">
+                                                    <div class="col-lg-12 margin-tb">
+                                                        <div class="pull-left">
+                                                            <h2>Show Contact</h2>
+                                                        </div>
 
-                                                    <input type="hidden" name="id"value="{{ $sponsor->id}}">
-
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">الاسم </label>
-                                                        <input type="text" class="form-control" name="name"  value="{{ $sponsor->name}}" >
                                                     </div>
-
-                                                    <div class="form-group">
-                                                        <label >الصورة</label>
-                                                        <input type="file" class="form-control-file" name="image" value=" {{ $sponsor->image}}"  >
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <strong>الاسم:</strong>
+                                                            {{ $contact->name }}
+                                                        </div>
                                                     </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-success">تاكيد</button>
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <strong>الايميل:</strong>
+                                                            {{ $contact->email }}
+                                                        </div>
                                                     </div>
-                                                </form>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <strong>الهاتف:</strong>
+                                                            {{ $contact->phone }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <strong>الموضوع:</strong>
+                                                            {{ $contact->subject }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <strong>الرسالة:</strong>
+                                                            {{ $contact->message }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                {{--                    <!-- delete_modal_sponsors -->--}}
-                                <div class="modal fade" id="delete{{ $sponsor->id }}" tabindex="-1" role="dialog"
+                                {{--                    <!-- delete_modal_contact -->--}}
+                                <div class="modal fade" id="delete{{ $contact->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -141,12 +163,12 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('sponsors.destroy', $sponsor->id) }}" method="post">
+                                                <form action="{{ route('contact.destroy', $contact->id) }}" method="post">
                                                     @method('DELETE')
 
                                                     @csrf
                                                     <input id="id" type="hidden" name="id" class="form-control"
-                                                           value="{{ $sponsor->id }}">
+                                                           value="{{ $contact->id }}">
                                                     <div class="modal-footer">
                                                         <button type="submit"
                                                                 class="btn btn-danger">حذف</button>
@@ -159,36 +181,6 @@
 
                             @endforeach
 
-
-                            <!-- add modal -->
-                            <div class="modal" id="modaldemo8">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content modal-content-demo">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title">اضافة</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('sponsors.store') }}" method="post"   enctype="multipart/form-data">
-                                                {{ csrf_field() }}
-
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">الاسم </label>
-                                                    <input type="text" class="form-control" name="name">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label >الصورة</label>
-                                                    <input type="file" class="form-control-file" name="image">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success">تاكيد</button>
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Basic modal -->
                             </div>
 
                             <!-- row closed -->

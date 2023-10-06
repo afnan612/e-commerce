@@ -17,7 +17,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ products</span>
+                <h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ المنتجات</span>
             </div>
         </div>
     </div>
@@ -57,14 +57,14 @@
                             <thead>
                             <tr>
                                 <th scope="col">id</th>
-                                <th scope="col">name</th>
-                                <th scope="col">description</th>
-                                <th scope="col">price</th>
-                                <th scope="col">discount</th>
-                                <th scope="col">final_price</th>
-                                <th scope="col">image</th>
-                                <th scope="col">status</th>
-                                <th scope="col">category_name</th>
+                                <th scope="col">الاسم</th>
+                                <th scope="col">الوصف</th>
+                                <th scope="col">السعر</th>
+                                <th scope="col">الخصم</th>
+                                <th scope="col">السعر بعد الخصم</th>
+                                <th scope="col">الصورة</th>
+                                <th scope="col">الحالة</th>
+                                <th scope="col">القسم</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
 
                             </tr>
@@ -82,7 +82,16 @@
                                     <td>{{ $product->discount }}</td>
                                     <td>{{ $product->final_price }}</td>
                                     <td > <img src="{{ asset($product->image) }}"  style="width: 80px" height="80px" border-radius="50%" ></td>
-                                    <td>{{ $product->status }}</td>
+
+                                    <td>
+                                        @if ($product->status == "in_stock")
+                                            <span class="badge badge-pill badge-success">{{ $product->status }}</span>
+                                        @else ($product->status == "unavailable")
+                                            <span class="badge badge-pill badge-danger">{{ $product->status }}</span>
+                                        @endif
+                                    </td>
+
+{{--                                    <td>{{ $product->status }}</td>--}}
                                     <td>{{ optional($product->category)->category_name }}</td>
 
                                     <td>
@@ -98,7 +107,7 @@
                                     </td>
                                 </tr>
 
-                                <!-- edit_modal_Grade -->
+                                <!-- edit_modal -->
                                 <div class="modal fade" id="edit{{ $product->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -139,10 +148,10 @@
                                                         <input type="text" class="form-control" id="slider_title" name="discount"  value="{{ $product->discount}}" >
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">السعر بعد الخصم  </label>
-                                                        <input type="text" class="form-control" id="slider_title" name="final_price"  value="{{ $product->final_price}}" >
-                                                    </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="exampleInputEmail1">السعر بعد الخصم  </label>--}}
+{{--                                                        <input type="text" class="form-control" id="slider_title" name="final_price"  value="{{ $product->final_price}}" >--}}
+{{--                                                    </div>--}}
 
                                                     <div class="form-group">
                                                         <label >image</label>
@@ -188,7 +197,7 @@
                                     </div>
                                 </div>
 
-                                {{--                    <!-- delete_modal_Grade -->--}}
+                                {{--                    <!-- delete_modal -->--}}
                                 <div class="modal fade" id="delete{{ $product->id }}" tabindex="-1" role="dialog"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -222,7 +231,7 @@
 
                             @endforeach
 
-                            <!-- Basic modal -->
+                            <!-- add modal -->
                             <div class="modal" id="modaldemo8">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content modal-content-demo">
@@ -254,10 +263,10 @@
                                                     <input type="text" class="form-control" id="discount" name="discount">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="final_price">السعر بعد الخصم</label>
-                                                    <input type="text" class="form-control" id="final_price" name="final_price">
-                                                </div>
+{{--                                                <div class="form-group">--}}
+{{--                                                    <label for="final_price">السعر بعد الخصم</label>--}}
+{{--                                                    <input type="text" class="form-control" id="final_price" name="final_price">--}}
+{{--                                                </div>--}}
 
                                                 <div class="form-group">
                                                     <label for="image">الصورة</label>

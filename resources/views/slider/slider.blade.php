@@ -17,7 +17,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ slider</span>
+							<h4 class="content-title mb-0 my-auto">المتجر</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ الصور المتحركة</span>
 						</div>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
                                                 </td>
                                             </tr>
 
-                <!-- edit_modal_Grade -->
+                <!-- edit_modal -->
                 <div class="modal fade" id="edit{{ $slider->id }}" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -123,7 +123,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label >image</label>
+                                        <label >الصورة</label>
                                         <input type="file" class="form-control-file" name="image" value=" {{  $slider->image}}"  >
                                     </div>
 
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-{{--                    <!-- delete_modal_Grade -->--}}
+{{--                    <!-- delete_modal -->--}}
                     <div class="modal fade" id="delete{{ $slider->id }}" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -182,7 +182,7 @@
 {{--                    </div>--}}
                     @endforeach
 
-                        <!-- Basic modal -->
+                        <!-- add modal -->
                         <div class="modal" id="modaldemo8">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content modal-content-demo">
@@ -204,7 +204,8 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label >image</label>
+                                                <label >الصورة
+                                                </label>
                                                 <input type="file" class="form-control-file" name="image" >
                                             </div>
 
