@@ -16,10 +16,6 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-//    puplic function logout()
-//{
-//    users
-//}
 
     /**
      * Show the application dashboard.

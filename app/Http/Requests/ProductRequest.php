@@ -28,8 +28,8 @@ class ProductRequest extends FormRequest
 
                 'name' => 'required',
                 'description' => 'required',
-                'price' => 'required|min:1',
-                'discount' => 'nullable',
+                'price' => 'required|min:1|numeric',
+                'discount' => 'nullable|numeric',
                 'image' => 'nullable|image',
                 'status' => 'required',
                 'category_id' => 'required|exists:categories,id',
@@ -41,8 +41,8 @@ class ProductRequest extends FormRequest
             return [
                 'name' => 'required',
                 'description' => 'required',
-                'price' => 'required|min:1',
-                'discount' => 'nullable',
+                'price' => 'required|min:1|numeric',
+                'discount' => 'nullable|numeric',
                 'image' => 'required|image',
                 'status' => 'required',
                 'category_id' => 'required|exists:categories,id',

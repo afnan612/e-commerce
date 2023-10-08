@@ -33,6 +33,8 @@ Route::group(['prefix'=> 'admin'],function (){
 
     Route::resource('admins', AdminController::class);
 
+    Route::get('/admins', [AdminController::class, 'index'])->name('admin.index');
+
     Route::resource('categories', CategoryController::class);
 
     Route::resource('sponsors', SponsorsController::class);
@@ -42,9 +44,17 @@ Route::group(['prefix'=> 'admin'],function (){
     Route::resource('contact', ContactController::class);
 
     Route::resource('about', AboutController::class);
+    Route::Put('about.edit', [AboutController::class,'edit'])->name('about.edit');
 
     Route::resource('reviews', ReviewController::class);
+
 
 });
 
 Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.LoginPage');
+Route::post('admin/login', [AuthController::class, 'login']);
+Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route:: get ('/{page}',[SliderController::class,'home']);
+

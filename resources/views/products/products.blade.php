@@ -2,16 +2,7 @@
 @section('title')
     المتجر
 @stop
-@section('css')
-    <!-- Internal Data table css -->
-    <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
 
-@endsection
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -148,28 +139,13 @@
                                                         <input type="text" class="form-control" id="slider_title" name="discount"  value="{{ $product->discount}}" >
                                                     </div>
 
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <label for="exampleInputEmail1">السعر بعد الخصم  </label>--}}
-{{--                                                        <input type="text" class="form-control" id="slider_title" name="final_price"  value="{{ $product->final_price}}" >--}}
-{{--                                                    </div>--}}
 
                                                     <div class="form-group">
                                                         <label >image</label>
                                                         <input type="file" class="form-control-file" name="image" value=" {{ $product->image}}" >
                                                     </div>
 
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <label for="status">الحالة</label><br>--}}
-{{--                                                        <div class="form-check">--}}
-{{--                                                            <input class="form-check-input" type="radio" name="status" id="status_in_stock" value="in_stock" {{ $product->status == 'in_stock' ? 'checked' : '' }}>--}}
-{{--                                                            <label class="form-check-label" for="status_in_stock">متوفر</label>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="form-check">--}}
-{{--                                                            <input class="form-check-input" type="radio" name="status" id="status_unavailable" value="unavailable" {{ $product->status == 'unavailable' ? 'checked' : '' }}>--}}
-{{--                                                            <label class="form-check-label" for="status_unavailable">غير متوفر</label>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-                                                    <label for="category_id">الحالة</label>
+                                                 <label for="category_id">الحالة</label>
                                                     <select name="status" id="status" class="form-control" required>
                                                         <option value="" disabled> --حدد الحالة--</option>
                                                         <option value="in_stock" {{ $product->status == 'in_stock' ? 'selected' : '' }}>in_stock</option>
@@ -263,11 +239,6 @@
                                                     <input type="text" class="form-control" id="discount" name="discount">
                                                 </div>
 
-{{--                                                <div class="form-group">--}}
-{{--                                                    <label for="final_price">السعر بعد الخصم</label>--}}
-{{--                                                    <input type="text" class="form-control" id="final_price" name="final_price">--}}
-{{--                                                </div>--}}
-
                                                 <div class="form-group">
                                                     <label for="image">الصورة</label>
                                                     <input type="file" class="form-control-file" id="image" name="image">
@@ -303,37 +274,12 @@
                             </div>
                             <!-- End Basic modal -->
                             </div>
-
                             <!-- row closed -->
                     </div>
                     <!-- Container closed -->
                 </div>
                 <!-- main-content closed -->
 
-
-                @endsection
-                @section('js')
-                    <!-- Internal Data tables -->
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
-                    <!--Internal  Datatable js -->
-                    <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
-                    <script src="{{URL::asset('assets/js/modal.js')}}"></script>
+    {{ $products->links() }}
 
 @endsection
-
-

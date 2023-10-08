@@ -1,28 +1,4 @@
-{{--@extends('layouts.app')--}}
 @extends('layouts.master')
-
-{{--<form method="POST" action="{{ route('admin.login') }}">--}}
-{{--    @csrf--}}
-
-{{--    <div>--}}
-{{--        <label for="email">{{ __('Email') }}</label>--}}
-{{--        <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>--}}
-{{--    </div>--}}
-
-{{--    <div>--}}
-{{--        <label for="password">{{ __('Password') }}</label>--}}
-{{--        <input id="password" type="password" name="password" required>--}}
-{{--    </div>--}}
-
-{{--    <div>--}}
-{{--        <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
-{{--        <label for="remember">{{ __('Remember Me') }}</label>--}}
-{{--    </div>--}}
-
-{{--    <div>--}}
-{{--        <button type="submit">{{ __('Login') }}</button>--}}
-{{--    </div>--}}
-{{--</form>--}}
 
 @section('content')
     <div class="container">
@@ -32,7 +8,7 @@
                     <div class="card-header">تسجيل دخول الادمن </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.login') }}">
+                        <form method="POST" action="{{ route('admin.LoginPage') }}">
                             @csrf
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right"> Email Or mobile</label>

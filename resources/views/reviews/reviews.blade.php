@@ -2,16 +2,7 @@
 @section('title')
     المتجر
 @stop
-@section('css')
-    <!-- Internal Data table css -->
-    <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
-    <link href="{{ URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet">
 
-@endsection
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -59,7 +50,7 @@
                                 <th scope="col">id</th>
                                 <th scope="col">الاسم</th>
                                 <th scope="col">العنوان الفرعي</th>
-                                <th scope="col">الرأي</th>
+                                <th scope="col">التعليق</th>
                                 <th scope="col">الصورة</th>
                                 <th class="wd-25p border-bottom-0">العمليات</th>
 
@@ -121,7 +112,7 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail1">الرأي </label>
+                                                        <label for="exampleInputEmail1">التعليق </label>
                                                         <input type="text" class="form-control" name="review"  value="{{ $review->review}}" >
                                                     </div>
 
@@ -195,7 +186,7 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">الرأي </label>
+                                                    <label for="exampleInputEmail1">التعليق </label>
                                                     <input type="text" class="form-control" name="review">
                                                 </div>
 
@@ -213,37 +204,12 @@
                                 </div>
                                 <!-- End Basic modal -->
                             </div>
-
                             <!-- row closed -->
                     </div>
                     <!-- Container closed -->
                 </div>
                 <!-- main-content closed -->
 
+    {{ $reviews->links() }}
 
                 @endsection
-                @section('js')
-                    <!-- Internal Data tables -->
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
-                    <script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
-                    <!--Internal  Datatable js -->
-                    <script src="{{URL::asset('assets/js/table-data.js')}}"></script>
-                    <script src="{{URL::asset('assets/js/modal.js')}}"></script>
-
-@endsection
-
-

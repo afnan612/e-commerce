@@ -10,73 +10,34 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     use ImageUploadTrait;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $abouts = About::all();
+        $about = About::first();
 
-        return view('about.about', compact('abouts'));
+        return view('about.about', compact('about'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
     public function show(About $about)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AboutRequest $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function update(AboutRequest $request,$id)
+    public function edit(AboutRequest $request)
     {
         $data = $request->validated();
 
-        $about = About::findOrFail($id);
+        $about = About::first();
 
         $images = [];
         if ($request->hasFile('image')) {
@@ -90,6 +51,12 @@ class AboutController extends Controller
 
         return redirect()->route('about.index')
             ->with('success', 'تم التعديل بنجاح.');
+    }
+
+
+    public function update(AboutRequest $request)
+    {
+
     }
 
     /**

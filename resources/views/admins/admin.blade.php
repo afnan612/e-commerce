@@ -206,11 +206,14 @@
                             </div>
 
                             <!-- row closed -->
+
+
                     </div>
                     <!-- Container closed -->
                 </div>
                 <!-- main-content closed -->
 
+    {{ $admins->links() }}
 
 @endsection
 
