@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SliderController;
@@ -28,7 +29,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=> 'admin'],function (){
+Route::group(['prefix' => 'admin'], function () {
+Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.LoginPage');
+Route::post('admin/login', [AuthController::class, 'login']);
+});
+
+
+Route::group(['prefix'=> 'admin', 'middleware' => 'auth:admin'],function (){
     Route::resource('slider', SliderController::class);
 
     Route::resource('admins', AdminController::class);
@@ -48,13 +55,20 @@ Route::group(['prefix'=> 'admin'],function (){
 
     Route::resource('reviews', ReviewController::class);
 
+    Route:: get ('/{page}',[SliderController::class,'home']);
+
+    Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
 
-Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.LoginPage');
-Route::post('admin/login', [AuthController::class, 'login']);
-Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout');
 
+// index page
+Route::get('index', [HomeController::class,'index'])->name('index');
 
-Route:: get ('/{page}',[SliderController::class,'home']);
+// about page
+Route::get('about', [HomeController::class,'about'])->name('about');
+
+## contact us
+Route::get('contact', [HomeController::class,'contact'])->name('contact');
+
 
