@@ -145,6 +145,11 @@
                                                         <input type="file" class="form-control-file" name="image" value=" {{ $product->image}}" >
                                                     </div>
 
+                                                    <div class="form-group">
+                                                        <label for="image">صور المنتج</label>
+                                                        <input type="file" name="images[]" data-default-file=""  accept="image/png, image/gif, image/jpeg,image/jpg" multiple />
+                                                    </div>
+
                                                  <label for="category_id">الحالة</label>
                                                     <select name="status" id="status" class="form-control" required>
                                                         <option value="" disabled> --حدد الحالة--</option>
@@ -240,9 +245,15 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="image">الصورة</label>
+                                                    <label for="image"> الصورة الاساسية للمنتج</label>
                                                     <input type="file" class="form-control-file" id="image" name="image">
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label for="image">صور المنتج</label>
+                                                    <input type="file" name="images[]" data-default-file=""  accept="image/png, image/gif, image/jpeg,image/jpg" multiple />
+                                                </div>
+
 
                                                 <div class="form-group">
                                                     <label for="status">الحالة</label>
@@ -283,3 +294,4 @@
     {{ $products->links() }}
 
 @endsection
+

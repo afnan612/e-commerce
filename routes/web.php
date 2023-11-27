@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -55,15 +56,18 @@ Route::group(['prefix'=> 'admin', 'middleware' => 'auth:admin'],function (){
 
     Route::resource('reviews', ReviewController::class);
 
+    Route::get('offers', [OfferController::class, 'index'])->name('offers.index');
+    Route::Put('offers.update', [OfferController::class,'update'])->name('offers.update');
+
+
     Route:: get ('/{page}',[SliderController::class,'home']);
 
     Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout');
 
 });
 
-
 // index page
-Route::get('index', [HomeController::class,'index'])->name('index');
+Route::get('/', [HomeController::class,'index'])->name('index');
 
 // about page
 Route::get('about', [HomeController::class,'about'])->name('about');
@@ -71,4 +75,11 @@ Route::get('about', [HomeController::class,'about'])->name('about');
 ## contact us
 Route::get('contact', [HomeController::class,'contact'])->name('contact');
 
+Route::post('ContactUs', [HomeController::class,'ContactUs'])->name('ContactUs');
 
+//## single_product
+Route::get('singleProduct/{id}', [HomeController::class,'singleProduct'])->name('singleProduct');
+
+Route::get('category/{id}', [HomeController::class,'getCategory'])->name('category');
+
+Route::get('shop', [HomeController::class,'shop'])->name('shop');

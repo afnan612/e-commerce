@@ -14,13 +14,13 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="title-content">
-                    <h2>About Us</h2>
+                    <h2>من نحن</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.html">الرئيسية</a>
                         </li>
                         <li>
-                            <span>About Us</span>
+                            <span>من نحن</span>
                         </li>
                     </ul>
                 </div>
@@ -28,7 +28,9 @@
         </div>
     </div>
     <div class="title-img">
-        <img src="assets/site/images/page-title1.jpg" alt="About">
+        <img src="assets/site/images/bg-other-01.png" alt="About">
+
+{{--        <img src="assets/site/images/page-title1.jpg" alt="About">--}}
         <img src="assets/site/images/shape16.png" alt="Shape">
         <img src="assets/site/images/shape17.png" alt="Shape">
         <img src="assets/site/images/shape18.png" alt="Shape">
@@ -42,19 +44,20 @@
             <div class="col-lg-6">
                 <div class="about-content">
                     <div class="top">
-                        <h2>About Our Store</h2>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum</p>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+                        <h2>عن متجرنا</h2>
+                        <p>
+                                {{ $about->description }}
+                        </p>
                     </div>
                     <div class="middle">
                         <ul>
                             <li>
                                 <img src="assets/site/images/about-icon1.png" alt="Icon">
-                                <h3>25+ Years Experience</h3>
+                                <h3>خبرة أكثر من 25 سنة</h3>
                             </li>
                             <li>
                                 <img src="assets/site/images/about-icon2.png" alt="Icon">
-                                <h3>Trusted Brand In City</h3>
+                                <h3>علامة تجارية موثوقة</h3>
                             </li>
                             <li>
                                 <img src="assets/site/images/about-icon3.png" alt="Icon">
@@ -62,12 +65,11 @@
                             </li>
                             <li>
                                 <img src="assets/site/images/about-icon4.png" alt="Icon">
-                                <h3>Best Quality Brand</h3>
+                                <h3>جودة فائقة</h3>
                             </li>
                         </ul>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirm od tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum</p>
-                        <a class="common-btn" href="shop.html">
-                            Shop Now
+                        <a class="common-btn" href="{{route('shop')}}">
+                            تسوق الان
                             <img src="assets/site/images/shape1.png" alt="Shape">
                             <img src="assets/site/images/shape2.png" alt="Shape">
                         </a>
@@ -75,105 +77,92 @@
                 </div>
             </div>
             <div class="col-lg-6">
+{{--                <div class="about-img">--}}
+{{--                    @foreach($about->image as $image)--}}
+{{--                        <img src="{{ $image }}" alt="About">--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+
                 <div class="about-img">
-                    <img src="assets/site/images/about-main1.jpg" alt="About">
-                    <img src="assets/site/images/about-main2.jpg" alt="About">
-                    <img src="assets/site/images/about-main3.jpg" alt="About">
+                    @foreach(json_decode($about->image) as $image)
+                        <img src="{{ $image }}" alt="About">
+                    @endforeach
                 </div>
+
+{{--                <div class="about-img">--}}
+{{--                    <img src="{{ $slider->image}}" alt="About">--}}
+{{--                    <img src="{{ $about->image}}" alt="About">--}}
+{{--                    <img src="assets/site/images/about-main3.jpg" alt="About">--}}
+{{--                    @foreach($data->image_array as $image)--}}
+{{--                        <img src="{{ $about->image}}" alt="About">--}}
+
+{{--                    @endforeach--}}
+{{--                    <img src="{{ $about->image}}" alt="About">--}}
+{{--                    <img src="{{ $about->image}}" alt="About">--}}
+{{--                    <img src="{{ $about->image}}" alt="About">--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>
 </section>
 
 
-<div class="buy-area">
-    <div class="buy-shape">
-        <img src="assets/site/images/shape3.png" alt="Shape">
-    </div>
-    <div class="container-fluid p-0">
-        <div class="row m-0 align-items-center">
-            <div class="col-lg-6 p-0">
-                <div class="buy-img">
-                    <img src="assets/site/images/buy-main1.png" alt="Buy">
-                </div>
-            </div>
-            <div class="col-lg-6 p-0">
-                <div class="buy-content ptb-100">
-                    <h2>Buy Best Furniture At A Cheaper Rate</h2>
-                    <p>Soft Comfy Ash Dual Sofa</p>
-                    <ul>
-                        <li>$160.00</li>
-                        <li>
-                            <del>$200.00</del>
-                        </li>
-                    </ul>
-                    <a class="common-btn" href="shop.html">
-                        Shop Now
-                        <img src="assets/site/images/shape1.png" alt="Shape">
-                        <img src="assets/site/images/shape2.png" alt="Shape">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{{--<div class="buy-area">--}}
+{{--    <div class="buy-shape">--}}
+{{--        <img src="assets/site/images/shape3.png" alt="Shape">--}}
+{{--    </div>--}}
+{{--    <div class="container-fluid p-0">--}}
+{{--        <div class="row m-0 align-items-center">--}}
+
+{{--            <div class="col-lg-6 p-0">--}}
+{{--                @foreach ($products as $product)--}}
+
+{{--                <div class="buy-img">--}}
+{{--                    <img src="{{ asset($product->image) }}" alt="Buy">--}}
+
+{{--                    <img src="assets/site/images/buy-main1.png" alt="Buy">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-6 p-0">--}}
+{{--                <div class="buy-content ptb-100">--}}
+{{--                    <h2>أفضل جودة--}}
+{{--                        بأقل سعر</h2>--}}
+{{--                    <p>{{ $product->name }}</p>--}}
+{{--                    <ul>--}}
+{{--                        <li>{{ $product->final_price }}</li>--}}
+{{--                        <li>--}}
+{{--                            <del>{{ $product->price }}</del>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                    @endforeach--}}
+{{--                    <a class="common-btn" href="{{route('shop')}}">--}}
+
+{{--                        Shop Now--}}
+{{--                        <img src="assets/site/images/shape1.png" alt="Shape">--}}
+{{--                        <img src="assets/site/images/shape2.png" alt="Shape">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 <section class="brand-area pt-100 pb-70">
     <div class="container">
         <div class="section-title">
-            <h2>Our Trusted Brand</h2>
+            <h2>شركاء النجاح</h2>
         </div>
         <div class="row justify-content-center">
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand1.png" alt="Brand">
-                    </a>
+            @foreach($sponsors as $sponsor)
+                <div class="col-sm-4 col-lg-3">
+                    <div class="brand-item">
+                        <a href="#">
+                            <img src="{{ $sponsor->image }}" alt="Brand">
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand2.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand3.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand4.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand5.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand6.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-lg-3">
-                <div class="brand-item">
-                    <a href="#">
-                        <img src="assets/site/images/brand/brand7.png" alt="Brand">
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -185,24 +174,24 @@
             <div class="col-sm-6 col-lg-4">
                 <div class="support-item">
                     <i class="flaticon-free-delivery"></i>
-                    <h3>Free Next Day Delivery</h3>
-                    <p>Lorem ipsum dolor sit amet, cons etetur sadipscing elitr</p>
+                    <h3>خدمة توصيل الطبات</h3>
+                    <p>نتعاقد مع افضل الشركات للشحن والتوصيل بأقل الاسعار</p>
                     <img src="assets/site/images/support-shape1.png" alt="Shape">
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4">
                 <div class="support-item">
                     <i class="flaticon-call-center"></i>
-                    <h3>24/7 Online Support</h3>
-                    <p>Lorem ipsum dolor sit amet, cons etetur sadipscing elitr</p>
+                    <h3>خدمة الدعم الفني</h3>
+                    <p>علي مدار اليوم خلال ال 24 ساعة نستقبل شكاوي العملاء</p>
                     <img src="assets/site/images/support-shape1.png" alt="Shape">
                 </div>
             </div>
             <div class="col-sm-6 col-lg-4">
                 <div class="support-item">
                     <i class="flaticon-giftbox"></i>
-                    <h3>Weekly Gift Voucher</h3>
-                    <p>Lorem ipsum dolor sit amet, cons etetur sadipscing elitr</p>
+                    <h3>كوبونات شراء اسبوعية</h3>
+                    <p>نقدم لعملائنا كوبونات خصم اسبوعية للمنتجات تصل الي 50%</p>
                     <img src="assets/site/images/support-shape1.png" alt="Shape">
                 </div>
             </div>
@@ -214,40 +203,46 @@
 <div class="testimonials-area ptb-100">
     <div class="container">
         <div class="section-title">
-            <h2>Our Client Testimonials</h2>
+            <h2>اراء عملائنا</h2>
         </div>
         <div class="testimonials-slider owl-theme owl-carousel">
+            @foreach($reviews as $review)
+
             <div class="testimonials-item">
                 <i class="flaticon-quote"></i>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam volu ptua</p>
-                <h3>Adam Smith</h3>
-                <span>Co-Founder Of Company</span>
-                <img src="assets/site/images/testimonial1.jpg" alt="Testimonial">
+                <p>{{ $review->review }}</p>
+                <h3>{{ $review->name }}</h3>
+                <span>{{ $review->sub_title }}</span>
+                <img src="{{ asset($review->image ) }}" alt="Testimonial">
             </div>
-            <div class="testimonials-item">
-                <i class="flaticon-quote"></i>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</p>
-                <h3>Jonathon Ronan</h3>
-                <span>Director Of Company</span>
-                <img src="assets/site/images/testimonial2.jpg" alt="Testimonial">
-            </div>
-            <div class="testimonials-item">
-                <i class="flaticon-quote"></i>
-                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>
-                <h3>Sarp Cesmeli</h3>
-                <span>Engineer Of Company</span>
-                <img src="assets/site/images/testimonial3.jpg" alt="Testimonial">
-            </div>
-            <div class="testimonials-item">
-                <i class="flaticon-quote"></i>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words </p>
-                <h3>Tom Henry</h3>
-                <span>Staff Of Company</span>
-                <img src="assets/site/images/testimonial4.jpg" alt="Testimonial">
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
+{{--            <div class="testimonials-item">--}}
+{{--                <i class="flaticon-quote"></i>--}}
+{{--                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum</p>--}}
+{{--                <h3>Jonathon Ronan</h3>--}}
+{{--                <span>Director Of Company</span>--}}
+{{--                <img src="assets/site/images/testimonial2.jpg" alt="Testimonial">--}}
+{{--            </div>--}}
+{{--            <div class="testimonials-item">--}}
+{{--                <i class="flaticon-quote"></i>--}}
+{{--                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old</p>--}}
+{{--                <h3>Sarp Cesmeli</h3>--}}
+{{--                <span>Engineer Of Company</span>--}}
+{{--                <img src="assets/site/images/testimonial3.jpg" alt="Testimonial">--}}
+{{--            </div>--}}
+{{--            <div class="testimonials-item">--}}
+{{--                <i class="flaticon-quote"></i>--}}
+{{--                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words </p>--}}
+{{--                <h3>Tom Henry</h3>--}}
+{{--                <span>Staff Of Company</span>--}}
+{{--                <img src="assets/site/images/testimonial4.jpg" alt="Testimonial">--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 
 

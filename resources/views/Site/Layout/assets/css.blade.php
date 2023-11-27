@@ -1,3 +1,5 @@
+<html lang="ar" dir="rtl">
+
 <!-- Title -->
 <title> @yield('title') </title>
 
