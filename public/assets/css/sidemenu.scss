@@ -1,5 +1,6 @@
 @import "../scss/variables";
 
+
 @charset "UTF-8";
 
 .app-sidebar .mCSB_draggerContainer {
@@ -73,7 +74,7 @@
 		margin-right: 13px !important;
 		margin-left: 0;
 	}
- 
+
 }
 
 .app-content {
@@ -711,7 +712,7 @@ slide is-expanded side-menu__item {
     line-height: 1;
     vertical-align: middle;
     font-weight: 400;
-	
+
 }
 .app-sidebar .slide .side-menu__item.active::before {
     content: '';
@@ -857,7 +858,7 @@ slide is-expanded side-menu__item {
           visibility: visible;
         }
       }
-	  
+
 }
 
     .side-menu__label {
@@ -920,7 +921,7 @@ slide is-expanded side-menu__item {
       text-align: center;
       border-left: 0;
 
-     
+
     }
 
     .side-menu_label {
@@ -1149,7 +1150,7 @@ slide is-expanded side-menu__item {
       margin-right: 0;
     }
 
-     
+
   }
 
   .user-pic {
@@ -1452,7 +1453,7 @@ slide is-expanded side-menu__item {
 		line-height: 1;
 		vertical-align: middle;
 		font-weight: 400
-		
+
 	}
 	.app.sidebar-mini.sidenav-toggled-open .angle {
 		display: block;
@@ -1502,7 +1503,7 @@ slide is-expanded side-menu__item {
 		display: block !important;
 	}
 	.app.sidebar-mini.sidenav-toggled.sidenav-toggled-open .slide-menu{
-	    left: 0; 
+	    left: 0;
 	}
 	.sidebar-mini.sidenav-toggled.sidenav-toggled-open .slide.is-expanded .slide-menu {
 		max-height: 100vh;

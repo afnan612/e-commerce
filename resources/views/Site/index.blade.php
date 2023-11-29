@@ -50,7 +50,7 @@
 
 <!-- End Slider Area -->
 
-@if($categories->count())
+
 <div class="products-area two pb-100">
     <div class="container">
         <!-- Start Categorie Area  -->
@@ -59,20 +59,22 @@
 
     <div class="products-thumb">
        <a href="#">
-{{--           {{asset('assets/site/images/products/shape1.png')}}--}}
+           {{--           {{asset('assets/site/images/products/shape1.png')}}--}}
            <img src=" {{asset('assets/site/images/products/shape1.png')}}" alt="Shape">
            <img src=" {{asset('assets/site/images/products/shape2.png')}}" alt="Shape">
-           <img src="{{($category->image)}}" alt="Banner">
+{{--           <img src="{{($category->image)}}" alt="Banner">--}}
 
            <i class="flaticon-square"></i>
-           <span>{{ $category->category_name }}</span>
+           <span><a href="{{route('category',$category->id)}}" class="text-dark nameCategory">{{ $category->category_name }}</a> </span>
+
+{{--           <span>{{ $category->category_name }}</span>--}}
        </a>
    </div>
     @endforeach
 </div>
 {{--    </div>--}}
 {{--</div>--}}
-@endif
+
 <!-- End Categorie Area -->
 
 <div class="row">
@@ -101,7 +103,6 @@
                        @else
                            <span>{{ $product->price }} ج.م</span>
                    @endif
-
 
 
 {{--                       <a href="{{route('single_product')}}">{{ $product->name }}</a> </h3>--}}

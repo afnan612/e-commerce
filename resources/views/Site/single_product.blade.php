@@ -77,11 +77,11 @@
                         <h2>{{$product->name}}</h2>
                         <p>{{$product->description}} </p>
                         <ul class="tag">
-{{--                            @foreach($categories as $category)--}}
-{{--                            <li>Category: <span>{{$product->$category->category_name}}</span></li>--}}
-{{--                            @endforeach--}}
-                            <li>Status: <span>{{$product->status}}</span></li>
-                            <li>price: <span>{{ $product->final_price }}</span></li>
+
+                                <li>القسم: <span>{{$product->category->category_name}}</span></li>
+
+                            <li>الحالة: <span>{{$product->status}}</span></li>
+                            <li>السعر: <span>{{ $product->final_price }}</span></li>
                         </ul>
 
                     </div>

@@ -31,12 +31,16 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-Route::get('admin/login', [AuthController::class, 'showLoginForm'])->name('admin.LoginPage');
-Route::post('admin/login', [AuthController::class, 'login']);
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('admin.LoginPage');
+Route::post('login', [AuthController::class, 'login']);
 });
 
 
 Route::group(['prefix'=> 'admin', 'middleware' => 'auth:admin'],function (){
+
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
     Route::resource('slider', SliderController::class);
 
     Route::resource('admins', AdminController::class);
@@ -62,7 +66,7 @@ Route::group(['prefix'=> 'admin', 'middleware' => 'auth:admin'],function (){
 
     Route:: get ('/{page}',[SliderController::class,'home']);
 
-    Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout');
+//    Route:: get ('admin/home',[SliderController::class,'home']);
 
 });
 

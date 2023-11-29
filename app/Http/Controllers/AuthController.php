@@ -11,21 +11,12 @@ class AuthController extends Controller
     public function showLoginForm(){
         if (Auth::guard('admin')->check()){
             return redirect('admins');
-
         }
         return view('admin.auth.login');
-
-//        return view('admin.auth.login');
-
     }
 
     public function login(Request $request)
     {
-//        $this->validate($request, [
-//            'email'   => 'required|email',
-//            'password' => 'required|min:6'
-//        ]);
-
         $data = $request->validate([
             'email'   =>'required|exists:admins',
             'password'=>'required'
@@ -36,7 +27,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($data)) {
-            return redirect()->intended('/home');
+            return redirect()->intended('admin/home');
         }
 
         return back()->withInput($request->only('email'));
@@ -46,11 +37,7 @@ class AuthController extends Controller
     {
         Auth::guard('admin')->logout();
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-        return redirect()->route('admin.LoginPage');
-    }
+        return redirect()->route('admin.LoginPage')->with('status', 'You have been logged out successfully.');    }
 
 }
 
