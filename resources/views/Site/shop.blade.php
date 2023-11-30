@@ -45,7 +45,7 @@
                             <div class="products-thumb">
                                 <img src="{{asset('assets/site/images/products/shape1.png')}}" alt="Shape">
                                 <img src="{{asset('assets/site/images/products/shape2.png')}}" alt="Shape">
-                                <i class="flaticon-square"></i>
+{{--                                <i class="flaticon-square"></i>--}}
                                 <span>الكل</span>
                             </div>
                         </li>
@@ -56,7 +56,8 @@
                                 <div class="products-thumb">
                                     <img src="{{asset('assets/site/images/products/shape1.png')}}" alt="Shape">
                                     <img src="{{asset('assets/site/images/products/shape2.png')}}" alt="Shape">
-                                    <i class="flaticon-square"></i>
+{{--                                    <i class="flaticon-square"></i>--}}
+                                    <img src="{{($category->image)}}" alt="Banner">
 {{--                                    <span>  <a href="{{route('shop')}}">{{ $category->category_name }}</a></span>--}}
 
                                     <span><a href="{{route('category',$category->id)}}" class="text-dark nameCategory">{{ $category->category_name }}</a> </span>
@@ -79,6 +80,8 @@
 
             <div class="col-lg-9">
                 <div id="Container" class="row">
+                    @if($products->count() != 0)
+
                     @foreach ($products as $product)
 
                     <div class="col-sm-6 col-lg-4 mix armchair center-table">
@@ -115,6 +118,11 @@
                     </div>
 
                     @endforeach
+                    @else
+                        <div class="text-center">
+                            <img src="{{asset('assets/site/images/products/products45.png')}}">
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -142,7 +150,7 @@
                             <h3>
                                 <a href="{{route('singleProduct',$product->id)}}">{{ $product->name }}</a>
                             </h3>
-                            <span>{{$product->final_price}}</span>
+                            <span>{{$product->final_price}}ج م</span>
                         </div>
                     </div>
 

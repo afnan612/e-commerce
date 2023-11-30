@@ -9,7 +9,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">Pages</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ Profile</span>
+                <h4 class="content-title mb-0 my-auto">لوحة التحكم</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0"></span>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                     <div class="pl-0">
                         <div class="main-profile-overview">
                             <div class="main-img-user profile-user">
-                                <img alt="" src="{{URL::asset('assets/img/faces/6.jpg')}}"><a class="fas fa-camera profile-edit" href="JavaScript:void(0);"></a>
+                                <img alt="" src="{{URL::asset('assets/img/faces/18.jpg')}}"><a class="fas fa-camera profile-edit" href="JavaScript:void(0);"></a>
                             </div>
                             <div class="d-flex justify-content-between mg-b-20">
                                 <div>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="mr-auto">
                                     <h5 class="tx-13">عدد المنتجات</h5>
-                                    <h2 class="mb-0 tx-22 mb-1 mt-1">1,587</h2>
+                                    <h2 class="mb-0 tx-22 mb-1 mt-1">150</h2>
 {{--                                    <p class="text-muted mb-0 tx-11"><i class="si si-arrow-up-circle text-success mr-1"></i>increase</p>--}}
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="mr-auto">
                                     <h5 class="tx-13">عدد رسايل العملاء</h5>
-                                    <h2 class="mb-0 tx-22 mb-1 mt-1">46,782</h2>
+                                    <h2 class="mb-0 tx-22 mb-1 mt-1">45</h2>
 {{--                                    <p class="text-muted mb-0 tx-11"><i class="si si-arrow-up-circle text-success mr-1"></i>increase</p>--}}
                                 </div>
                             </div>
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="mr-auto">
                                     <h5 class="tx-13">عدد التصنيفات</h5>
-                                    <h2 class="mb-0 tx-22 mb-1 mt-1">1,890</h2>
+                                    <h2 class="mb-0 tx-22 mb-1 mt-1">2</h2>
 {{--                                    <p class="text-muted mb-0 tx-11"><i class="si si-arrow-up-circle text-success mr-1"></i>increase</p>--}}
                                 </div>
                             </div>

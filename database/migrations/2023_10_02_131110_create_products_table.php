@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('discount')->nullable() ;
             $table->decimal('final_price');
             $table->string('image') ->nullable() ;
-            $table->enum('status', ['in_stock', 'unavailable']);
+            $table->enum('status', ['متاح', 'غير متوفر']);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();

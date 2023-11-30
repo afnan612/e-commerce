@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Slider;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
@@ -93,7 +94,9 @@ class SliderController extends Controller
 
     public function home()
     {
-        return view('home');
+        $admins = Admin::latest();
+
+        return view('home',compact('admins'));
     }
 
 

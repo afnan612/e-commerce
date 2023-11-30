@@ -37,6 +37,7 @@
 {{--    <form action="{{ route('admins.store') }}" method="post"   enctype="multipart/form-data">--}}
 {{--        {{ csrf_field() }}--}}
 
+
     <div class="contact-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
@@ -44,29 +45,31 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-8">
-                    <form  action="{{ route('ContactUs') }}" method="post" enctype="multipart/form-data">                        @csrf
+                    <form   action="{{ route('ContactUs') }}" method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="row">
                             <div class="col-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="الاسم" required data-error="من فضلك ضع اسمك">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="الاسم" required data-error="من فضلك ضع اسمك" >
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="البريد الالكتروني" required data-error="من فضلك ضع ايميلك">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="البريد الالكتروني" required data-error="من فضلك ضع ايميلك" >
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="phone" id="phone_number" placeholder="الرقم" required data-error="من فضلك اكتب رقمك" class="form-control">
+                                    <input type="text" name="phone" id="phone_number" placeholder="الرقم" required data-error="من فضلك اكتب رقمك" class="form-control" >
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
+
                             <div class="col-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="subject" id="msg_subject" class="form-control" placeholder="الموضوع" required data-error="من فضلك اكتب موضوع الرسالة">
+                                    <input type="text" name="subject" id="msg_subject" class="form-control" placeholder="الموضوع" required data-error="من فضلك اكتب موضوع الرسالة" >
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -105,9 +108,8 @@
                         <h3>معلومات التواصل:</h3>
                         <ul class="info">
 
-                            <li>  <a href="ahmedtarekya100@gmail.com">  ahmedtarekya100@gmail.com <i class="fal fa-envelope-open"></i> </a> </li>
-                            <li> <a href="tel:+9908314326">+990-831-4326 <i class="fal fa-phone-alt"></i> </a> </li>
-                            <li>  <a href="tel:+5465486325">+546-548-6325 <i class="fal fa-comment"></i>  </a> </li>
+                            <li>  <a href="{{ $setting->gmail }}">  {{ $setting->gmail }} <i class="fal fa-envelope-open"></i> </a> </li>
+                            <li> <a href="tel:{{ $setting->phone }}">{{ $setting->phone }} <i class="fal fa-phone-alt"></i> </a> </li>
 
 {{--                            <li>--}}
 {{--                                <i class="flaticon-pin"></i>--}}
@@ -128,30 +130,30 @@
                         <div class="social-links">
                             <ul>
                                 <li>
-                                    <a href="#" target="_blank">
+                                    <a href="{{ $setting->facebook }}" target="_blank">
                                         <i class='bx bxl-facebook'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank">
-                                        <i class='bx bxl-twitter'></i>
+                                    <a href="{{ $setting->whatsapp }}" target="_blank">
+                                        <i class='bx bxl-whatsapp'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank">
-                                        <i class='bx bxl-linkedin'></i>
+                                    <a href="{{ $setting->gmail }}" target="_blank">
+                                        <i class='bx bxl-google'></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class='bx bxl-skype'></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank">
-                                        <i class='bx bxl-youtube'></i>
-                                    </a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="#" target="_blank">--}}
+{{--                                        <i class='bx bxl-skype'></i>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="#" target="_blank">--}}
+{{--                                        <i class='bx bxl-youtube'></i>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </div>
@@ -168,145 +170,145 @@
 {{--    </div>--}}
 
 
-    <div class="modal fade modal-right popup-modal" id="exampleModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Shopping Cart <span>02 Items</span></h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="cart-table">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/site/images/cart/cart1.png" alt="Cart">
-                                </th>
-                                <td>
-                                    <h3>White Comfy Stool</h3>
-                                    <span class="rate">$200.00 x 1</span>
-                                </td>
-                                <td>
-                                    <ul class="number">
-                                        <li>
-                                            <span class="minus">-</span>
-                                            <input type="text" value="1" />
-                                            <span class="plus">+</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <a class="close" href="#">
-                                        <i class='bx bx-x'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/site/images/cart/cart2.png" alt="Cart">
-                                </th>
-                                <td>
-                                    <h3>Yellow Armchair</h3>
-                                    <span class="rate">$180.00 x 1</span>
-                                </td>
-                                <td>
-                                    <ul class="number">
-                                        <li>
-                                            <span class="minus">-</span>
-                                            <input type="text" value="1" />
-                                            <span class="plus">+</span>
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td>
-                                    <a class="close" href="#">
-                                        <i class='bx bx-x'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="total-amount">
-                            <h3>Total: <span>$380.00</span></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Enter Coupon Code">
-                        <button type="submit" class="btn common-btn">
-                            Proceed To Checkout
-                            <img src="assets/site/images/shape1.png" alt="Shape">
-                            <img src="assets/site/images/shape2.png" alt="Shape">
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="modal fade modal-right popup-modal" id="exampleModal" tabindex="-1" aria-hidden="true">--}}
+{{--        <div class="modal-dialog">--}}
+{{--            <div class="modal-content">--}}
+{{--                <div class="modal-header">--}}
+{{--                    <h2>Shopping Cart <span>02 Items</span></h2>--}}
+{{--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--                </div>--}}
+{{--                <div class="modal-body">--}}
+{{--                    <div class="cart-table">--}}
+{{--                        <table class="table">--}}
+{{--                            <tbody>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">--}}
+{{--                                    <img src="assets/site/images/cart/cart1.png" alt="Cart">--}}
+{{--                                </th>--}}
+{{--                                <td>--}}
+{{--                                    <h3>White Comfy Stool</h3>--}}
+{{--                                    <span class="rate">$200.00 x 1</span>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <ul class="number">--}}
+{{--                                        <li>--}}
+{{--                                            <span class="minus">-</span>--}}
+{{--                                            <input type="text" value="1" />--}}
+{{--                                            <span class="plus">+</span>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="close" href="#">--}}
+{{--                                        <i class='bx bx-x'></i>--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">--}}
+{{--                                    <img src="assets/site/images/cart/cart2.png" alt="Cart">--}}
+{{--                                </th>--}}
+{{--                                <td>--}}
+{{--                                    <h3>Yellow Armchair</h3>--}}
+{{--                                    <span class="rate">$180.00 x 1</span>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <ul class="number">--}}
+{{--                                        <li>--}}
+{{--                                            <span class="minus">-</span>--}}
+{{--                                            <input type="text" value="1" />--}}
+{{--                                            <span class="plus">+</span>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="close" href="#">--}}
+{{--                                        <i class='bx bx-x'></i>--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            </tbody>--}}
+{{--                        </table>--}}
+{{--                        <div class="total-amount">--}}
+{{--                            <h3>Total: <span>$380.00</span></h3>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="modal-footer">--}}
+{{--                    <form>--}}
+{{--                        <input type="text" class="form-control" placeholder="Enter Coupon Code">--}}
+{{--                        <button type="submit" class="btn common-btn">--}}
+{{--                            Proceed To Checkout--}}
+{{--                            <img src="assets/site/images/shape1.png" alt="Shape">--}}
+{{--                            <img src="assets/site/images/shape2.png" alt="Shape">--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
-    <div class="modal fade modal-right popup-modal wishlist-modal" id="exampleModalWishlist" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Wishlist <span>02 Items</span></h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="cart-table">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/site/images/cart/cart1.png" alt="Cart">
-                                </th>
-                                <td>
-                                    <h3>White Comfy Stool</h3>
-                                    <span class="rate">$200.00 x 1</span>
-                                </td>
-                                <td>
-                                    <a class="common-btn" href="shop.html">
-                                        Add To Cart
-                                        <img src="assets/site/images/shape1.png" alt="Shape">
-                                        <img src="assets/site/images/shape2.png" alt="Shape">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="close" href="#">
-                                        <i class='bx bx-x'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <img src="assets/site/images/cart/cart2.png" alt="Cart">
-                                </th>
-                                <td>
-                                    <h3>Yellow Armchair</h3>
-                                    <span class="rate">$180.00 x 1</span>
-                                </td>
-                                <td>
-                                    <a class="common-btn" href="shop.html">
-                                        Add To Cart
-                                        <img src="assets/site/images/shape1.png" alt="Shape">
-                                        <img src="assets/site/images/shape2.png" alt="Shape">
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="close" href="#">
-                                        <i class='bx bx-x'></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="modal fade modal-right popup-modal wishlist-modal" id="exampleModalWishlist" tabindex="-1" aria-hidden="true">--}}
+{{--        <div class="modal-dialog">--}}
+{{--            <div class="modal-content">--}}
+{{--                <div class="modal-header">--}}
+{{--                    <h2>Wishlist <span>02 Items</span></h2>--}}
+{{--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+{{--                </div>--}}
+{{--                <div class="modal-body">--}}
+{{--                    <div class="cart-table">--}}
+{{--                        <table class="table">--}}
+{{--                            <tbody>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">--}}
+{{--                                    <img src="assets/site/images/cart/cart1.png" alt="Cart">--}}
+{{--                                </th>--}}
+{{--                                <td>--}}
+{{--                                    <h3>White Comfy Stool</h3>--}}
+{{--                                    <span class="rate">$200.00 x 1</span>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="common-btn" href="shop.html">--}}
+{{--                                        Add To Cart--}}
+{{--                                        <img src="assets/site/images/shape1.png" alt="Shape">--}}
+{{--                                        <img src="assets/site/images/shape2.png" alt="Shape">--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="close" href="#">--}}
+{{--                                        <i class='bx bx-x'></i>--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            <tr>--}}
+{{--                                <th scope="row">--}}
+{{--                                    <img src="assets/site/images/cart/cart2.png" alt="Cart">--}}
+{{--                                </th>--}}
+{{--                                <td>--}}
+{{--                                    <h3>Yellow Armchair</h3>--}}
+{{--                                    <span class="rate">$180.00 x 1</span>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="common-btn" href="shop.html">--}}
+{{--                                        Add To Cart--}}
+{{--                                        <img src="assets/site/images/shape1.png" alt="Shape">--}}
+{{--                                        <img src="assets/site/images/shape2.png" alt="Shape">--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                                <td>--}}
+{{--                                    <a class="close" href="#">--}}
+{{--                                        <i class='bx bx-x'></i>--}}
+{{--                                    </a>--}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
+{{--                            </tbody>--}}
+{{--                        </table>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
     <div class="go-top">

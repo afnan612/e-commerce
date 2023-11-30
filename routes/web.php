@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -63,12 +64,17 @@ Route::group(['prefix'=> 'admin', 'middleware' => 'auth:admin'],function (){
     Route::get('offers', [OfferController::class, 'index'])->name('offers.index');
     Route::Put('offers.update', [OfferController::class,'update'])->name('offers.update');
 
+    Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+    Route::Put('setting.update', [SettingController::class,'update'])->name('setting.update');
 
     Route:: get ('/{page}',[SliderController::class,'home']);
 
 //    Route:: get ('admin/home',[SliderController::class,'home']);
 
 });
+
+Route::get('search', [HomeController::class,'searchProducts']);
+
 
 // index page
 Route::get('/', [HomeController::class,'index'])->name('index');

@@ -11,17 +11,17 @@
 				<a class="logo-icon mobile-logo icon-dark active" href="{{ url('/' . $page='admin\index') }}"><img src="{{URL::asset('assets/img/brand/favicon-white.png')}}" class="logo-icon dark-theme" alt="logo"></a>
 			</div>
 			<div class="main-sidemenu">
-				<div class="app-sidebar__user clearfix">
-					<div class="dropdown user-pro-body">
-						<div class="">
-							<img alt="user-img" class="avatar avatar-xl brround" src="{{URL::asset('assets/img/faces/6.jpg')}}"><span class="avatar-status profile-status bg-green"></span>
-						</div>
-						<div class="user-info">
-							<h4 class="font-weight-semibold mt-3 mb-0">Petey Cruiser</h4>
-							<span class="mb-0 text-muted">Premium Member</span>
-						</div>
-					</div>
-				</div>
+{{--				<div class="app-sidebar__user clearfix">--}}
+{{--					<div class="dropdown user-pro-body">--}}
+{{--						<div class="">--}}
+{{--							<img alt="user-img" class="avatar avatar-xl brround" src="{{URL::asset('assets/img/faces/6.jpg')}}"><span class="avatar-status profile-status bg-green"></span>--}}
+{{--						</div>--}}
+{{--						<div class="user-info">--}}
+{{--							<h4 class="font-weight-semibold mt-3 mb-0">Petey Cruiser</h4>--}}
+{{--							<span class="mb-0 text-muted">Premium Member</span>--}}
+{{--						</div>--}}
+{{--					</div>--}}
+{{--				</div>--}}
 				<ul class="side-menu">
 					<li class="side-item side-item-category">متجر الكتروني</li>
 					<li class="slide">
@@ -61,10 +61,11 @@
 
                     <li class="slide">
                         <a class="side-menu__item" href="{{ url('/' . $page='admin\offers') }}">
-                            <i class="fas fa-shopping-bag ml-3"></i>
+                            <i class="fas fa-tags ml-3"></i>
                             <span class="side-menu__label">العروض</span><span class="badge badge-danger side-badge"></span>
                         </a>
                     </li>
+
 
                     <li class="slide">
                         <a class="side-menu__item" href="{{ url('/' . $page='admin\contact') }}">
@@ -82,6 +83,13 @@
                         <a class="side-menu__item" href="{{ url('/' . $page='admin\reviews') }}">
                             <i class="fas fa-star ml-3"></i>
                             <span class="side-menu__label">اراء العملاء</span><span class="badge badge-danger side-badge"></span></a>
+                    </li>
+
+                    <li class="slide">
+                        <a class="side-menu__item" href="{{ url('/' . $page='admin\setting') }}">
+                            <i class="fas fa-cogs ml-3"></i>
+                            <span class="side-menu__label">الاعدادات</span><span class="badge badge-danger side-badge"></span>
+                        </a>
                     </li>
 =
 				</ul>

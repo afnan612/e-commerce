@@ -43,4 +43,15 @@ class ContactRequest extends FormRequest
             ];
         }
     }
+
+//    public function messages(){
+//        return[
+//            'name.required'    => "يرجي ادخال اسمك",
+//            'email.required'   => "يرجي ادخال البريد الالكتروني لنتمكن من التواصل معك",
+//            'phone.required'   => "يرجي ادخال هاتفك لنتمكن من التواصل معك",
+//            'subject.required' => "يرجي ادخال موضوع الرسالة",
+//            'message.required' => "يرجي كتابة رسالتك",
+//        ];
+//    }
+
 }

@@ -61,11 +61,11 @@
                             </li>
                             <li>
                                 <img src="assets/site/images/about-icon3.png" alt="Icon">
-                                <h3>32+ Award Winner</h3>
+                                <h3>جودة فائقة</h3>
                             </li>
                             <li>
                                 <img src="assets/site/images/about-icon4.png" alt="Icon">
-                                <h3>جودة فائقة</h3>
+                                <h3>سعر مناسب</h3>
                             </li>
                         </ul>
                         <a class="common-btn" href="{{route('shop')}}">

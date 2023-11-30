@@ -42,9 +42,8 @@
                         <h3>الدعم والتواصل</h3>
 
                         <ul class="support-list-item">
-                            <li>  <a href="ahmedtarekya100@gmail.com">  ahmedtarekya100@gmail.com <i class="fal fa-envelope-open"></i> </a> </li>
-                            <li> <a href="tel:+9908314326">+990-831-4326 <i class="fal fa-phone-alt"></i> </a> </li>
-                            <li>  <a href="tel:+5465486325">+546-548-6325 <i class="fal fa-comment"></i>  </a> </li>
+                            <li>  <a href="{{ $setting->gmail }}">  {{ $setting->gmail }} <i class="fal fa-envelope-open"></i> </a> </li>
+                            <li> <a href="tel:{{ $setting->phone }}">{{ $setting->phone }} <i class="fal fa-phone-alt"></i> </a> </li>
                         </ul>
 
 {{--                        <ul>--}}
@@ -144,28 +143,18 @@
                 <div class="social-links">
                     <ul>
                         <li>
-                            <a href="#" target="_blank">
+                            <a href="{{ $setting->facebook }}" target="_blank">
                                 <i class='bx bxl-facebook'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-twitter'></i>
+                            <a href="{{ $setting->whatsapp }}" target="_blank">
+                                <i class='bx bxl-whatsapp'></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-linkedin'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-skype'></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class='bx bxl-youtube'></i>
+                            <a href="{{ $setting->gmail }}" target="_blank">
+                                <i class='bx bxl-google'></i>
                             </a>
                         </li>
                     </ul>

@@ -75,9 +75,9 @@
                                     <td > <img src="{{ asset($product->image) }}"  style="width: 80px" height="80px" border-radius="50%" ></td>
 
                                     <td>
-                                        @if ($product->status == "in_stock")
+                                        @if ($product->status == "متاح")
                                             <span class="badge badge-pill badge-success">{{ $product->status }}</span>
-                                        @else ($product->status == "unavailable")
+                                        @else ($product->status == "غير متوفر")
                                             <span class="badge badge-pill badge-danger">{{ $product->status }}</span>
                                         @endif
                                     </td>
@@ -141,7 +141,7 @@
 
 
                                                     <div class="form-group">
-                                                        <label >image</label>
+                                                        <label >الصورة</label>
                                                         <input type="file" class="form-control-file" name="image" value=" {{ $product->image}}" >
                                                     </div>
 
@@ -153,8 +153,8 @@
                                                  <label for="category_id">الحالة</label>
                                                     <select name="status" id="status" class="form-control" required>
                                                         <option value="" disabled> --حدد الحالة--</option>
-                                                        <option value="in_stock" {{ $product->status == 'in_stock' ? 'selected' : '' }}>in_stock</option>
-                                                        <option value="unavailable" {{ $product->status == 'unavailable' ? 'selected' : '' }}>unavailable</option>
+                                                        <option value="متاح" {{ $product->status == 'متاح' ? 'selected' : '' }}>متاح</option>
+                                                        <option value="غير متوفر" {{ $product->status == 'غير متوفر' ? 'selected' : '' }}>غير متوفر</option>
                                                     </select>
 
                                                     <div class="form-group">
@@ -259,8 +259,8 @@
                                                     <label for="status">الحالة</label>
                                                     <select name="status" id="status" class="form-control" required>
                                                         <option value="" selected disabled>-- حدد الحالة --</option>
-                                                        <option value="in_stock">in_stock</option>
-                                                        <option value="unavailable">unavailable</option>
+                                                        <option value="متاح">متاح</option>
+                                                        <option value="غير متوفر">غير متوفر</option>
                                                     </select>
                                                 </div>
 

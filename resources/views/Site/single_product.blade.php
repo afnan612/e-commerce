@@ -62,6 +62,7 @@
 {{--                                            <img src="assets/images/products/product-details4.png" alt="Product">--}}
 {{--                                        </div>--}}
 {{--                                    </div>--}}
+
                                     @foreach($product->images as $image_row)
                                     <div class="top-img">
                                         <img src="{{asset($image_row->image)}}" height="455" width="455" alt="Product">
@@ -80,8 +81,15 @@
 
                                 <li>القسم: <span>{{$product->category->category_name}}</span></li>
 
+{{--                            <li>  الحالة:  @if ($product->status == "متاح")--}}
+{{--                                    <span class="badge badge-pill badge-success">{{ $product->status }}</span>--}}
+{{--                                @else ($product->status == "غير متوفر")--}}
+{{--                                    <span class="badge badge-pill badge-danger">{{ $product->status }}</span>--}}
+{{--                                @endif</li>--}}
+
+
                             <li>الحالة: <span>{{$product->status}}</span></li>
-                            <li>السعر: <span>{{ $product->final_price }}</span></li>
+                            <li>السعر: <span>{{ $product->final_price }}ج م</span></li>
                         </ul>
 
                     </div>
@@ -226,7 +234,7 @@
                             <h3>
                                 <a href="{{route('singleProduct',$product->id)}}">{{ $product->name }}</a>
                             </h3>
-                            <span>{{$product->final_price}}</span>
+                            <span>{{$product->final_price}}ج م</span>
                         </div>
                     </div>
 

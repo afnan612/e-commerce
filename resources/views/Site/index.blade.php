@@ -62,11 +62,16 @@
            {{--           {{asset('assets/site/images/products/shape1.png')}}--}}
            <img src=" {{asset('assets/site/images/products/shape1.png')}}" alt="Shape">
            <img src=" {{asset('assets/site/images/products/shape2.png')}}" alt="Shape">
-{{--           <img src="{{($category->image)}}" alt="Banner">--}}
+           <img src="{{($category->image)}}" alt="Banner">
 
-           <i class="flaticon-square"></i>
+{{--           <i class="flaticon-square"></i>--}}
            <span><a href="{{route('category',$category->id)}}" class="text-dark nameCategory">{{ $category->category_name }}</a> </span>
 
+           <style>
+               .nameCategory:hover{
+                   color: white!important;
+               }
+           </style>
 {{--           <span>{{ $category->category_name }}</span>--}}
        </a>
    </div>
@@ -174,137 +179,137 @@
 </div>
 </div>
 
-<div class="deal-area pt-100 pb-70">
-<div class="container">
-<div class="row">
-   <div class="col-lg-6">
-       <div class="section-title">
-           <h2>الاكثر مبيعا</h2>
-       </div>
-       <div class="deal-item">
-           <span class="percent">25%</span>
-           <a class="deal-btn" href="single-product.html">
-               <i class="bx bx-right-arrow-alt"></i>
-           </a>
-           <div class="inner align-items-center">
-               <div class="left">
-                   <img src="assets/site/images/deal-main1.png" alt="Deal">
-               </div>
-               <div class="right">
-                   <ul class="reviews">
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star"></i>
-                       </li>
-                       <li>
-                           <span>(5 تقييمات)</span>
-                       </li>
-                   </ul>
-                   <h3>سماعة ثاندر بيونك بلوتوث</h3>
-                   <ul class="price">
-                       <li>570.00 ج. م</li>
-                       <li><del>900 ج. م</del></li>
-                   </ul>
-                   <ul class="features">
-                       <li>
-                           <span>مواصفات المنتج:</span>
-                       </li>
-                       <li>دقة عالية</li>
-                       <li>قفل الصوت</li>
-                       <li>تدعم اندرويد</li>
-                       <li>ضمان 3 سنوات</li>
-                   </ul>
-                   <h4>احصل علي هذا المنتج في: <span>7 مارس</span></h4>
+{{--<div class="deal-area pt-100 pb-70">--}}
+{{--<div class="container">--}}
+{{--<div class="row">--}}
+{{--   <div class="col-lg-6">--}}
+{{--       <div class="section-title">--}}
+{{--           <h2>الاكثر مبيعا</h2>--}}
+{{--       </div>--}}
+{{--       <div class="deal-item">--}}
+{{--           <span class="percent">25%</span>--}}
+{{--           <a class="deal-btn" href="single-product.html">--}}
+{{--               <i class="bx bx-right-arrow-alt"></i>--}}
+{{--           </a>--}}
+{{--           <div class="inner align-items-center">--}}
+{{--               <div class="left">--}}
+{{--                   <img src="assets/site/images/deal-main1.png" alt="Deal">--}}
+{{--               </div>--}}
+{{--               <div class="right">--}}
+{{--                   <ul class="reviews">--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <span>(5 تقييمات)</span>--}}
+{{--                       </li>--}}
+{{--                   </ul>--}}
+{{--                   <h3>سماعة ثاندر بيونك بلوتوث</h3>--}}
+{{--                   <ul class="price">--}}
+{{--                       <li>570.00 ج. م</li>--}}
+{{--                       <li><del>900 ج. م</del></li>--}}
+{{--                   </ul>--}}
+{{--                   <ul class="features">--}}
+{{--                       <li>--}}
+{{--                           <span>مواصفات المنتج:</span>--}}
+{{--                       </li>--}}
+{{--                       <li>دقة عالية</li>--}}
+{{--                       <li>قفل الصوت</li>--}}
+{{--                       <li>تدعم اندرويد</li>--}}
+{{--                       <li>ضمان 3 سنوات</li>--}}
+{{--                   </ul>--}}
+{{--                   <h4>احصل علي هذا المنتج في: <span>7 مارس</span></h4>--}}
 
-                   <ul class="cart-wishlist">
-                       <li>
-                           <a href="#">
-                               <i class="bx bxs-cart"></i>
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#">
-                               <i class="bx bxs-heart"></i>
-                           </a>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-   </div>
-   <div class="col-lg-6">
-       <div class="section-title">
-           <h2>منتج مميز</h2>
-       </div>
-       <div class="deal-item two">
-           <a class="deal-btn" href="single-product.html">
-               <i class="bx bx-right-arrow-alt"></i>
-           </a>
-           <div class="inner align-items-center">
-               <div class="left">
-                   <img src="assets/site/images/deal-main2.png" alt="Deal">
-               </div>
-               <div class="right">
-                   <ul class="reviews">
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star checked"></i>
-                       </li>
-                       <li>
-                           <i class="bx bxs-star"></i>
-                       </li>
-                       <li>
-                           <span>(4 تقييمات)</span>
-                       </li>
-                   </ul>
-                   <h3>سمارت واتش هاي كوالتي</h3>
-                   <ul class="price">
-                       <li> 1300.00 ج.م</li>
-                   </ul>
-                   <h4>احصل علي هذا المنتج في: <span>13 مارس</span></h4>
-                   <ul class="cart-wishlist">
-                       <li>
-                           <a href="#">
-                               <i class="bx bxs-cart"></i>
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#">
-                               <i class="bx bxs-heart"></i>
-                           </a>
-                       </li>
-                   </ul>
-               </div>
-           </div>
-       </div>
-       <div class="deal-black">
-           <img src="assets/site/images/deal-shape1.png" alt="Shape">
-           <h3>عروض شهر رمضان المبارك</h3>
-           <a href="shop.html">عرض المنتجات</a>
-       </div>
-   </div>
-</div>
-</div>
-</div>
+{{--                   <ul class="cart-wishlist">--}}
+{{--                       <li>--}}
+{{--                           <a href="#">--}}
+{{--                               <i class="bx bxs-cart"></i>--}}
+{{--                           </a>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <a href="#">--}}
+{{--                               <i class="bx bxs-heart"></i>--}}
+{{--                           </a>--}}
+{{--                       </li>--}}
+{{--                   </ul>--}}
+{{--               </div>--}}
+{{--           </div>--}}
+{{--       </div>--}}
+{{--   </div>--}}
+{{--   <div class="col-lg-6">--}}
+{{--       <div class="section-title">--}}
+{{--           <h2>منتج مميز</h2>--}}
+{{--       </div>--}}
+{{--       <div class="deal-item two">--}}
+{{--           <a class="deal-btn" href="single-product.html">--}}
+{{--               <i class="bx bx-right-arrow-alt"></i>--}}
+{{--           </a>--}}
+{{--           <div class="inner align-items-center">--}}
+{{--               <div class="left">--}}
+{{--                   <img src="assets/site/images/deal-main2.png" alt="Deal">--}}
+{{--               </div>--}}
+{{--               <div class="right">--}}
+{{--                   <ul class="reviews">--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star checked"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <i class="bx bxs-star"></i>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <span>(4 تقييمات)</span>--}}
+{{--                       </li>--}}
+{{--                   </ul>--}}
+{{--                   <h3>سمارت واتش هاي كوالتي</h3>--}}
+{{--                   <ul class="price">--}}
+{{--                       <li> 1300.00 ج.م</li>--}}
+{{--                   </ul>--}}
+{{--                   <h4>احصل علي هذا المنتج في: <span>13 مارس</span></h4>--}}
+{{--                   <ul class="cart-wishlist">--}}
+{{--                       <li>--}}
+{{--                           <a href="#">--}}
+{{--                               <i class="bx bxs-cart"></i>--}}
+{{--                           </a>--}}
+{{--                       </li>--}}
+{{--                       <li>--}}
+{{--                           <a href="#">--}}
+{{--                               <i class="bx bxs-heart"></i>--}}
+{{--                           </a>--}}
+{{--                       </li>--}}
+{{--                   </ul>--}}
+{{--               </div>--}}
+{{--           </div>--}}
+{{--       </div>--}}
+{{--       <div class="deal-black">--}}
+{{--           <img src="assets/site/images/deal-shape1.png" alt="Shape">--}}
+{{--           <h3>عروض شهر رمضان المبارك</h3>--}}
+{{--           <a href="shop.html">عرض المنتجات</a>--}}
+{{--       </div>--}}
+{{--   </div>--}}
+{{--</div>--}}
+{{--</div>--}}
+{{--</div>--}}
 
 <section class="brand-area pt-100 pb-70">
 <div class="container">
@@ -373,7 +378,7 @@
                    <h3>
                        <a href="{{route('singleProduct',$product->id)}}">{{ $product->name }}</a>
                    </h3>
-                   <span>{{$product->final_price}}</span>
+                   <span>{{$product->final_price}}ج م</span>
                </div>
            </div>
 

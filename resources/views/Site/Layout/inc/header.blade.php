@@ -14,7 +14,6 @@ $categories = \App\Models\Category::latest()->get();
     </div>
 </div>
 
-
 <div class="header-area">
     <div class="container-fluid">
         <div class="row align-items-center">
@@ -38,29 +37,30 @@ $categories = \App\Models\Category::latest()->get();
             </div>
             <div class="col-sm-6 col-lg-5">
                 <div class="right">
-                    <div class="inner">
-                        <select>
-                            <option>$ USD</option>
-                            <option>EUR</option>
-                            <option>GBP</option>
-                            <option>CAD</option>
-                        </select>
-                    </div>
-                    <div class="inner">
-                        <form>
-                            <select>
-                                <option>العربية</option>
-                                <option>English</option>
-                                <option>Deutsch</option>
-                                <option>Português</option>
-                                <option>简体中文</option>
-                            </select>
-                        </form>
-                    </div>
+{{--                    <div class="inner">--}}
+{{--                        <select>--}}
+{{--                            <option>$ USD</option>--}}
+{{--                            <option>EUR</option>--}}
+{{--                            <option>GBP</option>--}}
+{{--                            <option>CAD</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                    <div class="inner">--}}
+{{--                        <form>--}}
+{{--                            <select>--}}
+{{--                                <option>العربية</option>--}}
+{{--                                <option>English</option>--}}
+{{--                                <option>Deutsch</option>--}}
+{{--                                <option>Português</option>--}}
+{{--                                <option>简体中文</option>--}}
+{{--                            </select>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
                     <div class="inner">
                         <div class="call">
                             <i class="flaticon-phone-call"></i>
-                            <a href="tel:9905324980">990-532-4980</a>
+
+                            <a href="tel:{{ $setting->phone }}">{{ $setting->phone }}</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ $categories = \App\Models\Category::latest()->get();
             </div>
             <div class="col-lg-5">
                 <div class="middle">
-                    <form>
+                    <form action=" {{url('search')}}" method="GET">
                         <div class="form-group">
                             <div class="inner">
                                 <select>
@@ -96,10 +96,10 @@ $categories = \App\Models\Category::latest()->get();
                                     @endforeach
                                 </select>
                             </div>
-                            <input type="text" class="form-control" placeholder="ابحث عن منتج">
-                            <button type="submit" class="btn">
+                            <input type="search" class="form-control" name="search" value="" placeholder="ابحث عن منتج">                            <button type="submit" class="btn">
                                 <i class='bx bx-search'></i>
                             </button>
+
                         </div>
                     </form>
                 </div>
