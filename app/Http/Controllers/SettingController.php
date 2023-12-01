@@ -28,7 +28,6 @@ class SettingController extends Controller
             $file = $request->file('logo');
             $data ['logo'] = $this->saveImages($file, 'images');
         }
-        return $request;
         $setting->update($data);
         return redirect()->route('setting.index')
             ->with('success', 'تم التعديل بنجاح.');

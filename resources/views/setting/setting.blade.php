@@ -51,7 +51,7 @@
 
                                                     <div class="form-group">
                                                         <label >اللوجو</label>
-                                                        <input type="file" class="form-control-file" name="image" value=" {{$setting->logo}}" >
+                                                        <input type="file" class="form-control-file" name="logo" value=" {{$setting->logo}}" >
                                                     </div>
 
                                                     <div class="form-group">

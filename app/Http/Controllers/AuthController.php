@@ -28,7 +28,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($data)) {
-            return redirect()->intended('admin/home');
+            return redirect()->intended('admin/admins');
         }
 
         return back()->withInput($request->only('email'));

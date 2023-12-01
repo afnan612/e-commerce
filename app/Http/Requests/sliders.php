@@ -28,7 +28,7 @@ class sliders extends FormRequest
             'description' => 'required',
             'image' => 'nullable',
             'btn_text' => 'required',
-            'btn_link' => 'required|url',
+            'btn_link' => 'nullable|url',
 
         ];
     }

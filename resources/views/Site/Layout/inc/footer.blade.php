@@ -13,8 +13,8 @@
             <div class="col-sm-6 col-lg-4">
                 <div class="footer-item">
                     <div class="footer-logo">
-                        <a class="logo" href="index.html">
-                            <img src="{{asset('assets/site/images/logo.png')}}" alt="Logo">
+                        <a href="{{route('index')}}" class="logo">
+                            <img src="{{ asset($setting->logo) }}" style="width: 100px;height: 50px" alt="logo">
                         </a>
 {{--                        <ul>--}}
 {{--                            <li>--}}
@@ -42,8 +42,25 @@
                         <h3>الدعم والتواصل</h3>
 
                         <ul class="support-list-item">
-                            <li>  <a href="{{ $setting->gmail }}">  {{ $setting->gmail }} <i class="fal fa-envelope-open"></i> </a> </li>
-                            <li> <a href="tel:{{ $setting->phone }}">{{ $setting->phone }} <i class="fal fa-phone-alt"></i> </a> </li>
+
+                            <li>
+
+                                <a   href="#">  <i class="flaticon-pin"></i>
+                                    الإدارة كورنيش النيل اركيديا مول الدور الاول بجوار بنك سي اي بي
+                                </a>
+                                <a href="#">                                المصنع _ المنطقة الصناعية مدينة السادس من اكتوبر
+                                </a>
+                            </li>
+
+                            <li>
+
+                                <a href="{{ $setting->gmail }}">  {{ $setting->gmail }}  <i class="flaticon-email"></i> </a>
+                            </li>
+                            <li>
+
+                                 <a  href="tel:{{ $setting->phone }}" > <i class="flaticon-phone-call"></i>  {{ $setting->phone }}
+                                </a>
+                            </li>
                         </ul>
 
 {{--                        <ul>--}}

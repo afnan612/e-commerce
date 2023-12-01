@@ -75,8 +75,10 @@ $categories = \App\Models\Category::latest()->get();
         <div class="row align-items-center">
             <div class="col-lg-2">
                 <div class="left">
-                    <a href="index.html">
-                        <img src="{{asset('assets')}}/site/images/logo.png" alt="Logo">
+                    <a href="{{route('index')}}">
+                        <img src="{{ asset($setting->logo) }}" style="width: 100px;height: 50px; mix-blend-mode: multiply  "  alt="logo">
+
+{{--                        <img src="{{asset('assets')}}/site/images/logo.png" alt="Logo">--}}
                     </a>
                 </div>
             </div>
@@ -148,8 +150,8 @@ $categories = \App\Models\Category::latest()->get();
 <div class="navbar-area sticky-top">
 
     <div class="mobile-nav">
-        <a href="index.html" class="logo">
-            <img src="{{asset('assets')}}/site/images/logo.png" alt="Logo">
+        <a href="{{route('index')}}" class="logo">
+            <img src="{{ asset($setting->logo) }}" style="width: 100px;height: 50px" alt="logo">
         </a>
         <div class="left">
             <select>

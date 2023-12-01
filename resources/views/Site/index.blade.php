@@ -22,7 +22,7 @@
                                 {{ $slider->description}}
                             </p>
 
-                            <a class="common-btn" href="#">
+                            <a class="common-btn" href="{{route('shop')}}">
                                 {{($slider->btn_text)}}
 
                                 <img src="assets/site/images/shape1.png" alt="Shape">
